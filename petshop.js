@@ -1,17 +1,6 @@
-// let animal = {
-//     tipo: "Cachorro",
-//     nome: "Rex",
-//     idade: 5,
-//     raca: "srd",
-//     porte: "grande",
-//     sexo: "macho",
-//     vacinado: "true",
-//     tutor: {
-//         nome:"Gustavo",
-//         telefone:"(11)4002-8922"
-//     }
+let divPet = document.getElementById('pets');
 
-// };
+
 
 let listaDeAnimais = [
     {
@@ -75,11 +64,27 @@ function visualizarPets(){
 
     for(let i =0; i<listaDeAnimais.length; i++){
 
-    let animal = listaDeAnimais[i] // COLOCANDO O [i] DENTRO DE UMA VARIAVEL PRA NAO TER QUE FICAR CHAMANDO 
-    console.log("------------------------------")
-    console.log("Nome do Animal: " + animal.nome)
-    console.log("Tipo do Animal: " + animal.tipo)
-    console.log("Sexo do Animal: " + animal.sexo)
+    let animal = listaDeAnimais[i];
+
+    let divConteudoPet = document.createElement('div'); // COLOCANDO O [i] DENTRO DE UMA VARIAVEL PRA NAO TER QUE FICAR CHAMANDO 
+    
+    divConteudoPet.setAttribute('class','bixinho');
+
+    let pSeparador = document.createElement('p');
+    pSeparador.textContent = "------------------------------";
+    
+    let pNomeAnimal = document.createElement('p');
+    pNomeAnimal.textContent = "Nome do Animal : " + animal.nome;
+
+    let pTipoAnimal = document.createElement('p');
+    pTipoAnimal.textContent = "Tipo do Animal : " + animal.tipo;
+
+
+    divConteudoPet.appendChild(pSeparador);
+    divConteudoPet.appendChild(pNomeAnimal);
+    divConteudoPet.appendChild(pTipoAnimal);
+
+    divPet.appendChild(divConteudoPet);
 
     }
 }
@@ -93,11 +98,13 @@ function acharPet (nomePet){
         let animal = listaDeAnimais[i]
 
     if(nomePet == animal.nome){
-        console.log("Achamos o seu pet na nossa lista :)")
-    }else{
-        console.log("Não achamos esse pet ):")
+        return console.log("Achamos o seu pet na nossa lista :)")
     }
+        
+    
 }
+    console.log("Não achamos esse pet ):")
+    
 }
 
 
