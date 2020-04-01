@@ -35,7 +35,7 @@ let listaDeAnimais = [
 
 //CRIANDO A FUNÇÃO DE ADICIONAR PETS NA LISTA DE ANIMAIS
 
-function adicionarPet(tipo,nome,idade,raca,porte,sexo, vacinado,tutor){
+const adicionarPet = (tipo,nome,idade,raca,porte,sexo, vacinado,tutor)=>{
 //AQUI PODE SER QUALQUER NOME NOS PARAMETROS MAS MELHOR DEIXAR IGUAL
     let novoPet = {
 
@@ -60,38 +60,38 @@ function adicionarPet(tipo,nome,idade,raca,porte,sexo, vacinado,tutor){
 
 //CRIANDO A FUNÇÃO DE VISUALIZAR PETS E DEIXANDO BONITINHO
 
-function visualizarPets(){
+const visualizarPets = () =>{
 
-    for(let i =0; i<listaDeAnimais.length; i++){
+    listaDeAnimais.forEach((animal,index)=>{
 
-    let animal = listaDeAnimais[i];
-
-    let divConteudoPet = document.createElement('div'); // COLOCANDO O [i] DENTRO DE UMA VARIAVEL PRA NAO TER QUE FICAR CHAMANDO 
+        let divConteudoPet = document.createElement('div'); // COLOCANDO O [i] DENTRO DE UMA VARIAVEL PRA NAO TER QUE FICAR CHAMANDO 
+        
+        divConteudoPet.setAttribute('class','bixinho');
     
-    divConteudoPet.setAttribute('class','bixinho');
-
-    let pSeparador = document.createElement('p');
-    pSeparador.textContent = "------------------------------";
+        let pSeparador = document.createElement('p');
+        pSeparador.textContent = "------------------------------";
+        
+        let pNomeAnimal = document.createElement('p');
+        pNomeAnimal.textContent = "Nome do Animal : " + animal.nome;
     
-    let pNomeAnimal = document.createElement('p');
-    pNomeAnimal.textContent = "Nome do Animal : " + animal.nome;
+        let pTipoAnimal = document.createElement('p');
+        pTipoAnimal.textContent = "Tipo do Animal : " + animal.tipo;
+    
+    
+        divConteudoPet.appendChild(pSeparador);
+        divConteudoPet.appendChild(pNomeAnimal);
+        divConteudoPet.appendChild(pTipoAnimal);
+    
+        divPet.appendChild(divConteudoPet);
+    
+        });
+    
 
-    let pTipoAnimal = document.createElement('p');
-    pTipoAnimal.textContent = "Tipo do Animal : " + animal.tipo;
-
-
-    divConteudoPet.appendChild(pSeparador);
-    divConteudoPet.appendChild(pNomeAnimal);
-    divConteudoPet.appendChild(pTipoAnimal);
-
-    divPet.appendChild(divConteudoPet);
-
-    }
 }
 
 //CRIANDO A FUNÇÃO DE ACHAR O PET PELO NOME
 
-function acharPet (nomePet){
+const acharPet =  nomePet =>{
 
     for(let i=0; i<listaDeAnimais.length; i++){
 
@@ -106,6 +106,27 @@ function acharPet (nomePet){
     console.log("Não achamos esse pet ):")
     
 }
+
+
+
+//ARROWFUNCTIONS
+
+//sem parametro
+
+// const visualizarPets = () =>{
+
+// }
+
+//com 1 parametro 
+// const visualizarPets = valora =>{
+
+// }
+
+//2 ou mais parametros
+
+// const visualizarPets = (valorA,valorB) =>{
+
+// }
 
 
 
